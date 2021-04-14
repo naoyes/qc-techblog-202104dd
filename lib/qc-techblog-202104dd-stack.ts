@@ -21,5 +21,10 @@ export class QcTechblog202104DdStack extends cdk.Stack {
         },
       ],
     });
+
+    const bastion = new ec2.BastionHostLinux(this, 'bastion', {
+      vpc,
+      subnetSelection: { subnetType: ec2.SubnetType.PUBLIC },
+    });
   }
 }
