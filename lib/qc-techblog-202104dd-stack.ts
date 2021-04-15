@@ -26,5 +26,10 @@ export class QcTechblog202104DdStack extends cdk.Stack {
       vpc,
       subnetSelection: { subnetType: ec2.SubnetType.PUBLIC },
     });
+
+    bastion.connections.allowFromAnyIpv4(
+      ec2.Port.tcp(22),
+      "Internet access SSH",
+    );
   }
 }
